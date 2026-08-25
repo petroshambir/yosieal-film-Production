@@ -3,7 +3,7 @@ import express from 'express';
 import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
-import ClientProject from '../models/ClientProject.js';
+import ClientProject from '../models/clientProject.js';
 
 const router = express.Router();
 
