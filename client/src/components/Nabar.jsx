@@ -509,7 +509,8 @@ function Navbar() {
           PRICE
       ========================== */}
       <Link
-        to="/price"
+        // to="/price"
+         to="/#"
         onClick={() => setIsOpen(false)}
         className="
           group
@@ -585,7 +586,8 @@ function Navbar() {
           CLIENT SELECTION
       ========================== */}
       <Link
-        to="/client-selection"
+        // to="/client-selection"
+         to="/#"
         onClick={() => setIsOpen(false)}
         className="
           group
