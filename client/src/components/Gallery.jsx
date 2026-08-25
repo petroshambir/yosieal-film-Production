@@ -27,7 +27,7 @@ function Gallery() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('https://habesha-film-production-server.onrender.com/api/projects')
+    fetch('https://yosieal-film-production-server.onrender.com/api/projects')
       .then(res => res.json())
       .then(data => {
         const found = data.find(item => {

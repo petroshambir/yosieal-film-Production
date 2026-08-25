@@ -66,7 +66,7 @@ function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('manager');
 
   useEffect(() => {
-    fetch('https://habesha-film-production-server.onrender.com/api/projects')
+    fetch('https://yosieal-film-production-server.onrender.com/api/projects')
       .then(res => res.json())
       .then(data => {
         const dataMap = {};
@@ -101,7 +101,7 @@ function AdminDashboard() {
 
   const fetchPortals = async () => {
     try {
-      const res = await fetch('https://habesha-film-production-server.onrender.com/api/client/portals');
+      const res = await fetch('https://yosieal-film-production-server.onrender.com/api/client/portals');
       if (res.ok) {
         const data = await res.json();
         setPortalsList(data);
@@ -145,7 +145,7 @@ function AdminDashboard() {
 
     setCreatingPortal(true);
     try {
-      const res = await fetch('https://habesha-film-production-server.onrender.com/api/client/create-portal', {
+      const res = await fetch('https://yosieal-film-production-server.onrender.com/api/client/create-portal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -201,7 +201,7 @@ function AdminDashboard() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 300000); 
 
-        const res = await fetch('https://habesha-film-production-server.onrender.com/api/client/upload-image', {
+        const res = await fetch('https://yosieal-film-production-server.onrender.com/api/client/upload-image', {
           method: 'POST',
           body: formData,
           signal: controller.signal
@@ -244,7 +244,7 @@ function AdminDashboard() {
   const handleDeletePortal = async (id) => {
     if (!window.confirm('ነዚ ፖርታል ከተጥፍኦ ትደል ኢኻ?')) return;
     try {
-      const res = await fetch(`https://habesha-film-production-server.onrender.com/api/client/delete-portal/${id}`, {
+      const res = await fetch(`https://yosieal-film-production-server.onrender.com/api/client/delete-portal/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {
@@ -268,7 +268,7 @@ function AdminDashboard() {
         headings: data.headings
       };
 
-      const res = await fetch(`https://habesha-film-production-server.onrender.com/api/projects/${title}`, {
+      const res = await fetch(`https://yosieal-film-production-server.onrender.com/api/projects/${title}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -628,172 +628,6 @@ function AdminDashboard() {
   );
 }
 
-// እቲ ንፖርትፎሊዮ ዝጥቀመሉ ክፍሊ (ብዘይ ገለ ምጽቃጥ - Original Files)
-// function SectionRenderer({ title, data, setData, onSave }) {
-//   const handleImageUpload = async (event) => {
-//     const files = Array.from(event.target.files);
-//     if (files.length === 0) return;
-
-//     const currentImagesCount = (data.images || []).length;
-//     if (currentImagesCount + files.length > 500) {
-//       alert(`ጌጋ: ሓደ ፖርታል ካብ 500 ምስልታት ንላዕሊ ክሕዝ ኣይፍቀድን እዩ! (ህጂ ዘለዉ: ${currentImagesCount})`);
-//       event.target.value = '';
-//       return;
-//     }
-
-//     alert('ስእሊታት ናብ ፖርትፎሊዮ ይስቀሉ ኣለዉ፣ ጽንሕ በል...');
-
-//     const BATCH_SIZE = 3; 
-//     let allNewImages = [...(data.images || [])];
-//     let allHeadings = [...(data.headings || [])];
-//     let allDescriptions = [...(data.descriptions || [])];
-
-//     try {
-//       for (let i = 0; i < files.length; i += BATCH_SIZE) {
-//         const batch = files.slice(i, i + BATCH_SIZE);
-//         const formData = new FormData();
-
-//         for (let file of batch) {
-//           formData.append('images', file); // ብዘይ compressImageFile (ሙሉእ ጥራት ዘለዎ ፋይል) ይልኣኽ
-//         }
-
-//         const res = await fetch(`https://habesha-film-production-server.onrender.com/api/projects/${title}/upload`, {
-//           method: 'POST',
-//           body: formData
-//         });
-
-//         if (!res.ok) throw new Error("Upload failed");
-        
-//         const result = await res.json();
-//         const newImagesFromBackend = result.images || [];
-        
-//         newImagesFromBackend.forEach((img, idx) => {
-//           const totalIdx = allNewImages.length;
-//           allNewImages.push(img);
-//           allHeadings.push(`Featured Moment ${totalIdx + 1}`);
-//           allDescriptions.push(`0${totalIdx + 1}. A wonderful captured memory of the special day.`);
-//         });
-
-//         setData({
-//           ...data,
-//           images: allNewImages,
-//           headings: allHeadings,
-//           descriptions: allDescriptions
-//         });
-//       }
-
-//       alert(`${files.length} ስእሊ(ታት) ብትኽክል ተሰቒሎም ኣለዉ!`);
-//     } catch (err) {
-//       console.error("Upload Error:", err);
-//       alert("ስእሊ ኣብ ምጽዓን ጸገም ኣጋጢሙ! (Timeout ጸገም ንምውጋድ ብውሑድ ፈትን)");
-//     } finally {
-//       event.target.value = '';
-//     }
-//   };
-
-//   const deleteImage = async (imgIndex) => {
-//     const updatedImages = (data.images || []).filter((_, i) => i !== imgIndex);
-//     const updatedHeadings = (data.headings || []).filter((_, i) => i !== imgIndex);
-//     const updatedDescriptions = (data.descriptions || []).filter((_, i) => i !== imgIndex);
-
-//     setData({ 
-//       ...data, 
-//       images: updatedImages,
-//       headings: updatedHeadings,
-//       descriptions: updatedDescriptions
-//     });
-//   };
-
-//   const handleHeadingChange = (index, value) => {
-//     const updatedHeadings = [...(data.headings || [])];
-//     updatedHeadings[index] = value;
-//     setData({ ...data, headings: updatedHeadings });
-//   };
-
-//   const handleDescriptionChange = (index, value) => {
-//     const updatedDescriptions = [...(data.descriptions || [])];
-//     updatedDescriptions[index] = value;
-//     setData({ ...data, descriptions: updatedDescriptions });
-//   };
-
-//   return (
-//     <div className="p-4 md:p-8 border border-zinc-700 rounded-2xl bg-zinc-900 shadow-2xl overflow-hidden">
-//       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-zinc-700 pb-4 gap-4">
-//         <h2 className="text-xl md:text-3xl font-bold text-amber-300">{title} Control Panel</h2>
-//         <button onClick={onSave} className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-bold w-full sm:w-auto text-sm">
-//           Save {title}
-//         </button>
-//       </div>
-
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//         <div className="flex flex-col w-full">
-//           <label className="block text-zinc-400 mb-2 text-sm">Names / Title:</label>
-//           <input 
-//             type="text" 
-//             value={data.names || ''}
-//             onChange={(e) => setData({ ...data, names: e.target.value })}
-//             className="bg-zinc-800 border border-zinc-600 p-3 rounded-lg w-full text-white mb-6 text-sm"
-//             placeholder="ማእከላይ ሽም (ንኣብነት Sara & Robel)"
-//           />
-
-//           <label className="block text-zinc-400 mb-2 text-sm">Section Main Description (መግለጫ):</label>
-//           <textarea 
-//             rows="3"
-//             value={data.desc || ''}
-//             onChange={(e) => setData({ ...data, desc: e.target.value })}
-//             className="bg-zinc-800 border border-zinc-600 p-3 rounded-lg w-full text-white text-sm focus:outline-none focus:border-amber-400 transition-colors"
-//             placeholder="እዚ ስራሕ እዚ ዝገልጽ ጽሑፍ ኣብዚ ጽሓፍ..."
-//           />
-//         </div>
-
-//         <div className="flex flex-col w-full">
-//           <label className="block text-zinc-400 mb-2 text-sm">Upload Images (Multiple Allowed):</label>
-//           <input 
-//             type="file" 
-//             multiple
-//             onChange={handleImageUpload} 
-//             className="text-zinc-400 text-xs file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-black hover:file:bg-amber-400 w-full bg-zinc-800 p-2 rounded-lg" 
-//           />
-//         </div>
-//       </div>
-
-//       <div className="mt-8 space-y-4">
-//         <h3 className="text-lg md:text-xl font-semibold text-amber-400 border-b border-zinc-800 pb-2">Manage Image Headings & Descriptions</h3>
-//         {data.images && data.images.map((img, index) => {
-//           const defaultHeading = `Featured Moment ${index + 1}`;
-//           const defaultDesc = `0${index + 1}. A wonderful captured memory of the special day.`;
-//           const imgSrc = typeof img === 'string' ? img : (img?.url || img?.original || '');
-
-//           return (
-//             <div key={index} className="flex flex-col sm:flex-row gap-4 p-4 bg-zinc-800/50 border border-zinc-700 rounded-xl items-center">
-//               <img src={imgSrc} alt="" className="w-20 h-20 object-cover rounded-lg shrink-0 border border-zinc-600" />
-//               <div className="flex-1 w-full space-y-2">
-//                 <input 
-//                   type="text"
-//                   value={data.headings?.[index] !== undefined ? data.headings[index] : defaultHeading}
-//                   onChange={(e) => handleHeadingChange(index, e.target.value)}
-//                   className="bg-zinc-800 border border-zinc-600 p-2 rounded w-full text-white text-xs"
-//                   placeholder="Heading"
-//                 />
-//                 <textarea 
-//                   rows="2"
-//                   value={data.descriptions?.[index] !== undefined ? data.descriptions[index] : defaultDesc}
-//                   onChange={(e) => handleDescriptionChange(index, e.target.value)}
-//                   className="bg-zinc-800 border border-zinc-600 p-2 rounded w-full text-white text-xs"
-//                   placeholder="Description"
-//                 />
-//               </div>
-//               <button onClick={() => deleteImage(index)} className="bg-red-600 hover:bg-red-700 text-white p-2 rounded-lg text-xs font-bold shrink-0 self-start sm:self-center">
-//                 Delete
-//               </button>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-// እቲ ንፖርትፎሊዮ ዝጥቀመሉ ክፍሊ (ብግቡእ ዝተኣረመ - ዶብ ከይተደጋገመ ብንጹር ዝሰርሕ)
 function SectionRenderer({ title, data, setData, onSave }) {
   const handleImageUpload = async (event) => {
     const files = Array.from(event.target.files);
@@ -822,7 +656,7 @@ function SectionRenderer({ title, data, setData, onSave }) {
           formData.append('images', file);
         }
 
-        const res = await fetch(`https://habesha-film-production-server.onrender.com/api/projects/${title}/upload`, {
+        const res = await fetch(`https://yosieal-film-production-server.onrender.com/api/projects/${title}/upload`, {
           method: 'POST',
           body: formData
         });

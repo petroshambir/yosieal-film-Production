@@ -37,7 +37,7 @@ function Price() {
   // =========================================================
 
   const API_BASE =
-    'https://habesha-film-production-server.onrender.com';
+    'https://yosieal-film-production-server.onrender.com';
 
   const NOTEBOOK_API = `${API_BASE}/api/notebook`;
   const PACKAGES_API = `${API_BASE}/api/packages`;

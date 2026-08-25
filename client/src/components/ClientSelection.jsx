@@ -15,7 +15,7 @@ const fixImageUrl = (imgObjOrUrl) => {
   if (typeof imgObjOrUrl === 'string') {
     let url = imgObjOrUrl;
     if (url.includes('localhost:5000')) {
-      url = url.replace('http://localhost:5000', 'https://habesha-film-production-server.onrender.com');
+      url = url.replace('http://localhost:5000', 'https://yosieal-film-production-server.onrender.com');
     }
     return { original: url, compressed: url };
   }
@@ -25,10 +25,10 @@ const fixImageUrl = (imgObjOrUrl) => {
 
   return {
     original: originalUrl.includes('localhost:5000') 
-      ? originalUrl.replace('http://localhost:5000', 'https://habesha-film-production-server.onrender.com') 
+      ? originalUrl.replace('http://localhost:5000', 'https://yosieal-film-production-server.onrender.com') 
       : originalUrl,
     compressed: compressedUrl.includes('localhost:5000') 
-      ? compressedUrl.replace('http://localhost:5000', 'https://habesha-film-production-server.onrender.com') 
+      ? compressedUrl.replace('http://localhost:5000', 'https://yosieal-film-production-server.onrender.com') 
       : compressedUrl
   };
 };
@@ -56,7 +56,7 @@ function ClientSelection() {
 
   const fetchPortals = async () => {
     try {
-      const response = await fetch('https://habesha-film-production-server.onrender.com/api/client/portals');
+      const response = await fetch('https://yosieal-film-production-server.onrender.com/api/client/portals');
       if (response.ok) {
         const data = await response.json();
         setPortals(data);
@@ -85,7 +85,7 @@ function ClientSelection() {
     setPasscodeError('');
 
     try {
-      const response = await fetch('https://habesha-film-production-server.onrender.com/api/client/verify-client-passcode', {
+      const response = await fetch('https://yosieal-film-production-server.onrender.com/api/client/verify-client-passcode', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passcode: enteredPasscode.trim() })
@@ -140,7 +140,7 @@ function ClientSelection() {
     try {
       const targetId = project._id || project.portalId;
 
-      const response = await fetch(`https://habesha-film-production-server.onrender.com/api/client/submit-selection/${targetId}`, {
+      const response = await fetch(`https://yosieal-film-production-server.onrender.com/api/client/submit-selection/${targetId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ selectedImages }), // [{original, compressed}]

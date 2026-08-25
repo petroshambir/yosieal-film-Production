@@ -55,7 +55,7 @@ const ProtectedImage = ({ src, alt, className, onClick, showLogoOnly = false }) 
           <div className="flex flex-col items-center justify-center select-none opacity-40 group-hover:opacity-75 transition-opacity duration-300">
             <img 
               src={Logo} 
-              alt="Habesha Logo" 
+              alt="Yosieal Logo" 
               className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]"
             />
           </div>
@@ -65,12 +65,12 @@ const ProtectedImage = ({ src, alt, className, onClick, showLogoOnly = false }) 
             {/* 🌟 እቲ ቀዳማይ (ኣብ ላዕሊ - ብጸሊም ሕብሪ) */}
             <div className="flex flex-col items-center text-center transform -rotate-6">
               <img 
-                src={adalLogo} 
-                alt="Habesha Logo" 
+                src={Logo} 
+                alt="Yosieal Logo" 
                 className="w-5 h-5 md:w-7 md:h-7 object-contain mb-1 drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]"
               />
               <h2 className="text-sm md:text-xl font-serif font-bold tracking-[0.25em] uppercase text-zinc-950 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
-                Habesha Pictures
+                Yosieal Pictures
               </h2>
               <p className="text-[8px] md:text-[10px] tracking-[0.4em] uppercase text-zinc-900 font-bold mt-0.5">
                 Protected Gallery
@@ -80,12 +80,12 @@ const ProtectedImage = ({ src, alt, className, onClick, showLogoOnly = false }) 
             {/* 🌟 እቲ ካልኣይ (ኣብ ታሕቲ - ብጸሊም ሕብሪ) */}
             <div className="flex flex-col items-center text-center transform -rotate-6">
               <img 
-                src={adalLogo} 
-                alt="Habesha Logo" 
+                src={Logo} 
+                alt="Yosieal Logo" 
                 className="w-5 h-5 md:w-7 md:h-7 object-contain mb-1 drop-shadow-[0_2px_4px_rgba(255,255,255,0.7)]"
               />
               <h2 className="text-sm md:text-xl font-serif font-bold tracking-[0.25em] uppercase text-zinc-950 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
-                Habesha Pictures
+                Yosieal Pictures
               </h2>
               <p className="text-[8px] md:text-[10px] tracking-[0.4em] uppercase text-zinc-900 font-bold mt-0.5">
                 Protected Gallery
