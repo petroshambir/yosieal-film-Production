@@ -43,7 +43,7 @@ app.use(
 ========================================================= */
 
 const allowedOrigins = [
-  'https://biruk-pictures.onrender.com',
+  'https://yosieal-film-production.onrender.com',
 ];
 
 app.use(
