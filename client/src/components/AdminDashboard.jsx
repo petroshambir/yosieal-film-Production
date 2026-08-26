@@ -346,7 +346,7 @@ function AdminDashboard() {
       </aside>
 
       <main className="flex-1 p-4 md:p-10 overflow-y-auto max-w-full">
-        {activeTab === 'manager' && (
+        {/* {activeTab === 'manager' && (
           <div className="space-y-6">
             <div className="bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-amber-400 mb-2">Welcome to Admin Control Panel</h2>
@@ -373,9 +373,9 @@ function AdminDashboard() {
               ))}
             </div>
           </div>
-        )}
+        )} */}
 
-        {activeTab === 'portal' && (
+        {/* {activeTab === 'portal' && (
           <div className="space-y-8">
             <div className="p-4 md:p-6 border border-amber-500/50 rounded-2xl bg-zinc-900 shadow-2xl">
               <h2 className="text-xl md:text-2xl font-bold text-amber-400 mb-6">Create Client Selection Portal (Max 500 Photos)</h2>
@@ -484,7 +484,7 @@ function AdminDashboard() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
         {sectionsConfig.map((sec) => {
           if (activeTab !== sec.title) return null;
