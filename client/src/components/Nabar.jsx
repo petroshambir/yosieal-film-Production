@@ -508,7 +508,7 @@ function Navbar() {
       {/* =========================
           PRICE
       ========================== */}
-      <Link
+      {/* <Link
         // to="/price"
          to="/#"
         onClick={() => setIsOpen(false)}
@@ -541,7 +541,7 @@ function Navbar() {
             group-hover:w-8
           "
         />
-      </Link>
+      </Link> */}
 
 
       {/* =========================
@@ -585,7 +585,7 @@ function Navbar() {
       {/* =========================
           CLIENT SELECTION
       ========================== */}
-      <Link
+      {/* <Link
         // to="/client-selection"
          to="/#"
         onClick={() => setIsOpen(false)}
@@ -619,7 +619,7 @@ function Navbar() {
             group-hover:w-full
           "
         />
-      </Link>
+      </Link> */}
 
     </div>
 
