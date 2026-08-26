@@ -287,15 +287,15 @@ function AdminDashboard() {
       <aside className="w-full md:w-72 bg-zinc-900 border-b md:border-r border-zinc-800 p-4 md:p-6 flex flex-col justify-between shrink-0 md:sticky md:top-0 md:h-screen z-20">
         <div>
           <div className="flex items-center gap-3 mb-6 md:mb-8">
-            <div className="bg-amber-500 text-black p-2 rounded-xl font-black text-xl">HF</div>
+            <div className="bg-amber-500 text-black p-2 rounded-xl font-black text-xl">Y</div>
             <div>
               <h1 className="text-lg font-bold text-amber-500 leading-tight">Admin Portal</h1>
-              <p className="text-xs text-zinc-400">Habesha Film Production</p>
+              <p className="text-xs text-zinc-400">Yosieal Film Production</p>
             </div>
           </div>
 
           <nav className="flex md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 scrollbar-none">
-            <button
+            {/* <button
               onClick={() => setActiveTab('manager')}
               className={`whitespace-nowrap px-4 py-3 rounded-xl font-medium text-sm transition-all flex items-center justify-between ${
                 activeTab === 'manager' 
@@ -304,9 +304,9 @@ function AdminDashboard() {
               }`}
             >
               <span>📊 Dashboard Overview</span>
-            </button>
+            </button> */}
 
-            <button
+            {/* <button
               onClick={() => setActiveTab('portal')}
               className={`whitespace-nowrap px-4 py-3 rounded-xl font-medium text-sm transition-all flex items-center justify-between ${
                 activeTab === 'portal' 
@@ -318,7 +318,7 @@ function AdminDashboard() {
               <span className={`text-xs px-2 py-0.5 rounded-full ml-2 ${activeTab === 'portal' ? 'bg-black text-amber-400' : 'bg-zinc-800 text-zinc-400'}`}>
                 {portalsList.length}
               </span>
-            </button>
+            </button> */}
 
             <div className="hidden md:block pt-4 pb-2">
               <p className="text-[11px] uppercase tracking-wider text-zinc-500 font-bold px-3">Portfolio Sections</p>
