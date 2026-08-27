@@ -64,7 +64,7 @@ function Hero() {
           {/* Buttons */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              to="/client-selection"
+              to="/contact"
               className="group inline-flex items-center gap-3 bg-[#d8ae55] px-6 py-3.5 text-[10px] font-bold uppercase tracking-[0.22em] text-black transition duration-300 hover:bg-[#f0ca75] hover:shadow-[0_0_30px_rgba(216,174,85,0.35)] sm:px-7"
             >
               Start Your Story
